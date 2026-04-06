@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#24191a",
+                    "surface-dim": "#ead5d7",
+                    "background": "#fff8f7",
+                    "error-container": "#ffdad6",
+                    "on-surface": "#24191a",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#ffd9de",
+                    "secondary": "#96406c",
+                    "tertiary": "#550822",
+                    "surface-variant": "#f3dddf",
+                    "tertiary-container": "#732137",
+                    "secondary-fixed-dim": "#ffafd1",
+                    "on-secondary-fixed-variant": "#792853",
+                    "on-tertiary-container": "#f88aa0",
+                    "secondary-container": "#fa93c2",
+                    "inverse-primary": "#ffb1c6",
+                    "on-secondary-container": "#772752",
+                    "tertiary-fixed-dim": "#ffb2bf",
+                    "on-surface-variant": "#564147",
+                    "error": "#ba1a1a",
+                    "secondary-fixed": "#ffd8e6",
+                    "primary-fixed-dim": "#ffb1c6",
+                    "outline": "#8a7177",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#ffe9eb",
+                    "on-secondary-fixed": "#3d0025",
+                    "primary-container": "#800040",
+                    "outline-variant": "#ddbfc6",
+                    "on-tertiary-fixed": "#3f0015",
+                    "on-primary-fixed": "#3f001c",
+                    "surface-bright": "#fff8f7",
+                    "surface-tint": "#ab2c60",
+                    "surface-container-high": "#f9e3e5",
+                    "surface-container-low": "#fff0f1",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#ff83ab",
+                    "surface-container-highest": "#f3dddf",
+                    "primary": "#58002a",
+                    "on-tertiary": "#ffffff",
+                    "primary-fixed": "#ffd9e2",
+                    "on-tertiary-fixed-variant": "#7d293f",
+                    "inverse-on-surface": "#ffecee",
+                    "inverse-surface": "#3a2d2f",
+                    "surface": "#fff8f7",
+                    "on-primary-fixed-variant": "#8b0e48"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "2xl": "1rem",
+                    "3xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0px 12px 32px rgba(36, 25, 26, 0.06);
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body antialiased">
+<nav class="w-full sticky top-0 z-50 bg-[#fff8f7] dark:bg-stone-950/80 shadow-[0px_12px_32px_rgba(36,25,26,0.04)]">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-6 h-20">
+<span class="text-2xl font-bold tracking-tighter text-[#58002a] dark:text-rose-400 font-headline">Footprints to Feel Better</span>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+<div class="hidden md:flex items-center gap-8 font-label text-sm font-semibold tracking-wide">
+<a class="text-[#24191a] dark:text-stone-400 hover:text-[#800040] transition-colors hover:scale-105 transition-transform duration-300" href="#">Home</a>
+<a class="text-[#58002a] dark:text-rose-300 border-b-2 border-[#800040] pb-1 hover:scale-105 transition-transform duration-300" href="#">About Us</a>
+<a class="text-[#24191a] dark:text-stone-400 hover:text-[#800040] transition-colors hover:scale-105 transition-transform duration-300" href="#">Services</a>
+<a class="text-[#24191a] dark:text-stone-400 hover:text-[#800040] transition-colors hover:scale-105 transition-transform duration-300" href="#">Therapists</a>
+<a class="text-[#24191a] dark:text-stone-400 hover:text-[#800040] transition-colors hover:scale-105 transition-transform duration-300" href="#">Contact</a>
+</div>
+</div>
+</nav>
+<main class="pb-32">
+<header class="px-6 pt-12 pb-8">
+<h1 class="font-headline text-5xl font-extrabold text-primary tracking-tighter leading-tight mb-4">
+                Our Story of <br/><span class="text-secondary italic">Serene Care.</span>
+</h1>
+<p class="text-on-surface-variant text-lg leading-relaxed max-w-md">
+                We believe healing isn't a destination, but a beautiful, unfolding narrative. Welcome to our sanctuary.
+            </p>
+</header>
+<section class="px-6 mb-16 relative">
+<div class="w-full aspect-[4/5] rounded-3xl overflow-hidden editorial-shadow mb-6">
+<img class="w-full h-full object-cover" data-alt="Soft focused image of sunlight filtering through sheer curtains in a warm, cream-toned therapy room with minimalist decor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl26J-OPLawqt9xZOj3yc5bzvgf7b5-1OLMRnl6Hgb_D3q6D_eVwLWDJksudFicODUveh4rzGIqhpzxxIIYDbWSULhjRYgYvTSK2kyHEasGZiwZO2_gjiaZWKUPa8Hhnscu1eobsHkHaCCEWhD0yga1Mb-3yXbyxiVv1eoSeXIqGWgC2nADFFG-v8joIpUyW3_JH1AMbdZBtGWDP2vyzLug3dgY1EgIdTGkCEs_fK6p1s6Sv5ZMsAQToeuV7ZvWugVNhOb0mMJXYfk"/>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-3xl editorial-shadow -mt-20 relative z-10 mx-4 border border-outline-variant/10">
+<span class="font-label text-xs font-bold uppercase tracking-widest text-secondary mb-3 block">Our Mission</span>
+<h2 class="font-headline text-2xl font-bold text-primary mb-4">To Curate Healing</h2>
+<p class="text-on-surface-variant leading-relaxed">
+                    Footprints to Feel Better was born from the realization that mental healthcare deserves the same elegance and intentionality as a high-end gallery. We don't just provide therapy; we curate personalized journeys toward wholeness.
+                </p>
+</div>
+</section>
+<section class="bg-surface-container-low py-16 px-6 mb-16">
+<div class="max-w-md mx-auto">
+<h2 class="font-headline text-3xl font-bold text-primary mb-12 tracking-tight">The Footprints Approach</h2>
+<div class="space-y-12">
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-primary-container flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined">spa</span>
+</div>
+<div>
+<h3 class="font-headline text-xl font-bold text-primary mb-2">Gentle Guidance</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                Our therapists act as compassionate curators, helping you navigate the complex landscape of your mind with grace and professional expertise.
+                            </p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-secondary flex items-center justify-center text-on-secondary">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<div>
+<h3 class="font-headline text-xl font-bold text-primary mb-2">Evidence-Led</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                While our soul is editorial and human, our methods are clinical. We combine modern psychological science with holistic wellness.
+                            </p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-tertiary-container flex items-center justify-center text-on-tertiary-container" style="color: white;">
+<span class="material-symbols-outlined">favorite</span>
+</div>
+<div>
+<h3 class="font-headline text-xl font-bold text-primary mb-2">Radical Empathy</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                We prioritize the therapeutic bond above all else. You are seen, you are heard, and you are held in a space of non-judgment.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="px-6 mb-16">
+<h2 class="font-headline text-3xl font-bold text-primary mb-8 tracking-tight">Meet the Curators</h2>
+<div class="flex overflow-x-auto gap-6 pb-8 snap-x no-scrollbar">
+<div class="flex-shrink-0 w-72 snap-center">
+<div class="bg-surface-container-lowest rounded-3xl overflow-hidden editorial-shadow p-6">
+<div class="w-24 h-24 rounded-full overflow-hidden mb-6 mx-auto border-4 border-surface-container">
+<img class="w-full h-full object-cover" data-alt="Professional portrait of a middle-aged therapist woman with a warm, empathetic smile, soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_o7LWiZpNv3dy08joSXWK-jBk_lZvLdsc3-4AP-E8SSac24VanS8vorGnoJ8JWkukfg1BmWl_va3e6AhdDq2xyAIvIhBibdEQTqp6yIbGV2Kjxzpyla0kwa76sWXg2zaHquPYR75TxvqznrgZC_gprDSGDUgZsZf5pxEBtKd5cQna4rUyfeLOiRv09v82th14biunW12IY9zANH4MYOvwALCUXPozgZ4LtrIPjtGlgfe9yaP2QC1BoAqhicCufSW5PCOjgla7FMqh"/>
+</div>
+<h4 class="font-headline text-center text-xl font-bold text-primary">Dr. Sarah Chen</h4>
+<p class="text-center text-secondary font-label text-xs uppercase font-bold tracking-wider mb-4">Clinical Lead</p>
+<p class="text-center text-on-surface-variant text-sm leading-relaxed">Specializing in narrative therapy and mindfulness-based cognitive shifts.</p>
+</div>
+</div>
+<div class="flex-shrink-0 w-72 snap-center">
+<div class="bg-surface-container-lowest rounded-3xl overflow-hidden editorial-shadow p-6">
+<div class="w-24 h-24 rounded-full overflow-hidden mb-6 mx-auto border-4 border-surface-container">
+<img class="w-full h-full object-cover" data-alt="Kind face of a male therapist in a soft linen shirt, warm indoor environment, friendly professional gaze" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNZlcXekFjk6-pdqqZRYvQt7uk8zzYuUO-AOyY4S7STpjF33SuNpkFy6BzxxwjrtjfV-x0v2j-IUQIOgCuSQwGlIEvFPpK4BogM9qX-JJTc1zGe5S6-6usYeScGYk2NGyr7fE6-Uzl0amxOX13P8LH19Tsbb69FrbZgf0Z3mAcq0teG-7cgpN6rrPIUJup5ZG6IVaZPZE68zBxh0SBizRT4EXoEbFpCrGcAcyJbVqNqWQFRO10HR-6fyBPCfmgF4pAmKtIOGRUl94Z"/>
+</div>
+<h4 class="font-headline text-center text-xl font-bold text-primary">Marcus Thorne</h4>
+<p class="text-center text-secondary font-label text-xs uppercase font-bold tracking-wider mb-4">Family Therapist</p>
+<p class="text-center text-on-surface-variant text-sm leading-relaxed">Expert in systemic constellations and strengthening interpersonal bonds.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="px-6">
+<div class="bg-primary-container rounded-3xl p-8 text-center text-on-primary shadow-2xl overflow-hidden relative">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary opacity-20 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+<h2 class="font-headline text-3xl font-bold mb-4 relative z-10">Start Your Story</h2>
+<p class="opacity-90 mb-8 relative z-10">Your journey toward feeling better begins with a single step. Let's walk together.</p>
+<button class="w-full bg-surface-container-lowest text-primary py-4 rounded-full font-bold font-label uppercase tracking-widest hover:scale-[1.02] transition-transform active:scale-95 duration-200 shadow-lg">
+                    Find Your Therapist
+                </button>
+</div>
+</section>
+</main>
+<footer class="w-full mt-auto bg-[#58002a] dark:bg-stone-950 py-12 px-8 flex flex-col md:flex-row justify-between items-center gap-6 pb-32">
+<div class="text-lg font-bold text-white font-headline">Footprints</div>
+<div class="flex flex-wrap justify-center gap-4 text-[#fff8f7] font-body text-sm font-light">
+<a class="opacity-70 hover:opacity-100 transition-opacity hover:text-rose-200" href="#">Privacy Policy</a>
+<a class="opacity-70 hover:opacity-100 transition-opacity hover:text-rose-200" href="#">Terms of Service</a>
+<a class="opacity-70 hover:opacity-100 transition-opacity hover:text-rose-200" href="#">Emergency Resources</a>
+</div>
+<p class="text-[#fff8f7] font-body text-xs opacity-50 text-center">
+            © 2024 Footprints to Feel Better. A Sanctuary for Healing.
+        </p>
+</footer>
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-2 bg-[#fff8f7]/80 dark:bg-stone-950/80 backdrop-blur-md z-50 shadow-[0px_-8px_24px_rgba(36,25,26,0.08)] rounded-t-[2rem]">
+<a class="flex flex-col items-center justify-center text-[#96406c] dark:text-stone-400 p-2 hover:opacity-80 active:scale-95 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label font-bold uppercase text-[10px] tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#96406c] dark:text-stone-400 p-2 hover:opacity-80 active:scale-95 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="font-label font-bold uppercase text-[10px] tracking-widest mt-1">Services</span>
+</a>
+<div class="flex flex-col items-center justify-center bg-[#800040] text-white rounded-2xl p-2 w-16 h-16 shadow-lg -mt-8 border-4 border-background">
+<span class="material-symbols-outlined">info</span>
+<span class="font-label font-bold uppercase text-[9px] tracking-widest mt-1">About</span>
+</div>
+<a class="flex flex-col items-center justify-center text-[#96406c] dark:text-stone-400 p-2 hover:opacity-80 active:scale-95 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-label font-bold uppercase text-[10px] tracking-widest mt-1">Therapists</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#96406c] dark:text-stone-400 p-2 hover:opacity-80 active:scale-95 duration-200 transition-all" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-label font-bold uppercase text-[10px] tracking-widest mt-1">Contact</span>
+</a>
+</nav>
+</body></html>

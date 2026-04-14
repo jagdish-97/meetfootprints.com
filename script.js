@@ -269,6 +269,9 @@ function buildFilterOptions(therapists) {
     optionMap.state.add(therapist.location);
     therapist.specialties.forEach((item) => optionMap.specialties.add(item));
     therapist.languages.forEach((item) => optionMap.languages.add(item));
+    if (therapist.languages.length > 1) {
+      optionMap.languages.add("Bilingual");
+    }
     therapist.therapyTypes.forEach((item) => optionMap.therapyTypes.add(item));
     optionMap.availability.add(therapist.availability);
   });
@@ -279,6 +282,8 @@ function buildFilterOptions(therapists) {
 }
 
 function attachEventListeners() {
+  initFilterGroupToggles();
+
   elements.searchInput.addEventListener("input", debounce((event) => {
     state.filters.search = event.target.value.trim();
     render(true);
@@ -332,6 +337,15 @@ function attachEventListeners() {
       state.currentPage = nextPage;
       render();
     }
+  });
+}
+
+function initFilterGroupToggles() {
+  document.querySelectorAll(".filter-group-toggle").forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+      const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", String(!isExpanded));
+    });
   });
 }
 
@@ -544,8 +558,13 @@ function getFilteredTherapists() {
     const matchesState = !state.filters.state.length || state.filters.state.includes(therapist.location);
     const matchesSpecialties = !state.filters.specialties.length
       || therapist.specialties.some((item) => state.filters.specialties.includes(item));
-    const matchesLanguages = !state.filters.languages.length
-      || therapist.languages.some((item) => state.filters.languages.includes(item));
+    const matchesLanguages = !state.filters.languages.length || state.filters.languages.some((language) => {
+      if (language === "Bilingual") {
+        return therapist.languages.length > 1;
+      }
+
+      return therapist.languages.includes(language);
+    });
     const matchesTherapyTypes = !state.filters.therapyTypes.length
       || therapist.therapyTypes.some((item) => state.filters.therapyTypes.includes(item));
     const matchesAvailability = !state.filters.availability.length

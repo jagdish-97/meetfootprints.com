@@ -87,44 +87,74 @@
           </div>
 
           <div class="filter-group">
-            <h3>State</h3>
-            <div class="filter-options" id="state-options"></div>
-          </div>
-
-          <div class="filter-group">
-            <h3>Specialties</h3>
-            <div class="filter-options" id="specialties-options"></div>
-          </div>
-
-          <div class="filter-group">
-            <h3>Languages</h3>
-            <div class="filter-options" id="languages-options"></div>
-          </div>
-
-          <div class="filter-group">
-            <h3>Therapy Type</h3>
-            <div class="filter-options" id="therapyTypes-options"></div>
-          </div>
-
-          <div class="filter-group">
-            <h3>Availability</h3>
-            <div class="filter-options" id="availability-options"></div>
-          </div>
-
-          <div class="filter-group">
-            <div class="filter-range-header">
-              <h3>Price Range</h3>
-              <output id="price-output">$0 - $300+</output>
+            <button class="filter-group-toggle" type="button" aria-expanded="true">
+              <span>State</span>
+              <span class="filter-group-arrow" aria-hidden="true"></span>
+            </button>
+            <div class="filter-group-body">
+              <div class="filter-options" id="state-options"></div>
             </div>
-            <div class="range-grid">
-              <label>
-                <span>Minimum</span>
-                <input type="range" id="price-min" min="0" max="300" step="25" value="0">
-              </label>
-              <label>
-                <span>Maximum</span>
-                <input type="range" id="price-max" min="0" max="300" step="25" value="300">
-              </label>
+          </div>
+
+          <div class="filter-group">
+            <button class="filter-group-toggle" type="button" aria-expanded="true">
+              <span>Specialties</span>
+              <span class="filter-group-arrow" aria-hidden="true"></span>
+            </button>
+            <div class="filter-group-body">
+              <div class="filter-options" id="specialties-options"></div>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <button class="filter-group-toggle" type="button" aria-expanded="true">
+              <span>Languages</span>
+              <span class="filter-group-arrow" aria-hidden="true"></span>
+            </button>
+            <div class="filter-group-body">
+              <div class="filter-options" id="languages-options"></div>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <button class="filter-group-toggle" type="button" aria-expanded="true">
+              <span>Therapy Type</span>
+              <span class="filter-group-arrow" aria-hidden="true"></span>
+            </button>
+            <div class="filter-group-body">
+              <div class="filter-options" id="therapyTypes-options"></div>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <button class="filter-group-toggle" type="button" aria-expanded="true">
+              <span>Availability</span>
+              <span class="filter-group-arrow" aria-hidden="true"></span>
+            </button>
+            <div class="filter-group-body">
+              <div class="filter-options" id="availability-options"></div>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <button class="filter-group-toggle" type="button" aria-expanded="true">
+              <span>Price Range</span>
+              <span class="filter-group-arrow" aria-hidden="true"></span>
+            </button>
+            <div class="filter-group-body">
+              <div class="filter-range-header">
+                <output id="price-output">$0 - $300+</output>
+              </div>
+              <div class="range-grid">
+                <label>
+                  <span>Minimum</span>
+                  <input type="range" id="price-min" min="0" max="300" step="25" value="0">
+                </label>
+                <label>
+                  <span>Maximum</span>
+                  <input type="range" id="price-max" min="0" max="300" step="25" value="300">
+                </label>
+              </div>
             </div>
           </div>
 
@@ -186,44 +216,74 @@
     </div>
     <div class="mobile-filters-content">
       <div class="filter-group">
-        <h3>State</h3>
-        <div class="filter-options" id="mobile-state-options"></div>
-      </div>
-
-      <div class="filter-group">
-        <h3>Specialties</h3>
-        <div class="filter-options" id="mobile-specialties-options"></div>
-      </div>
-
-      <div class="filter-group">
-        <h3>Languages</h3>
-        <div class="filter-options" id="mobile-languages-options"></div>
-      </div>
-
-      <div class="filter-group">
-        <h3>Therapy Type</h3>
-        <div class="filter-options" id="mobile-therapyTypes-options"></div>
-      </div>
-
-      <div class="filter-group">
-        <h3>Availability</h3>
-        <div class="filter-options" id="mobile-availability-options"></div>
-      </div>
-
-      <div class="filter-group">
-        <div class="filter-range-header">
-          <h3>Price Range</h3>
-          <output id="mobile-price-output">$0 - $300+</output>
+        <button class="filter-group-toggle" type="button" aria-expanded="true">
+          <span>State</span>
+          <span class="filter-group-arrow" aria-hidden="true"></span>
+        </button>
+        <div class="filter-group-body">
+          <div class="filter-options" id="mobile-state-options"></div>
         </div>
-        <div class="range-grid">
-          <label>
-            <span>Minimum</span>
-            <input type="range" id="mobile-price-min" min="0" max="300" step="25" value="0">
-          </label>
-          <label>
-            <span>Maximum</span>
-            <input type="range" id="mobile-price-max" min="0" max="300" step="25" value="300">
-          </label>
+      </div>
+
+      <div class="filter-group">
+        <button class="filter-group-toggle" type="button" aria-expanded="true">
+          <span>Specialties</span>
+          <span class="filter-group-arrow" aria-hidden="true"></span>
+        </button>
+        <div class="filter-group-body">
+          <div class="filter-options" id="mobile-specialties-options"></div>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <button class="filter-group-toggle" type="button" aria-expanded="true">
+          <span>Languages</span>
+          <span class="filter-group-arrow" aria-hidden="true"></span>
+        </button>
+        <div class="filter-group-body">
+          <div class="filter-options" id="mobile-languages-options"></div>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <button class="filter-group-toggle" type="button" aria-expanded="true">
+          <span>Therapy Type</span>
+          <span class="filter-group-arrow" aria-hidden="true"></span>
+        </button>
+        <div class="filter-group-body">
+          <div class="filter-options" id="mobile-therapyTypes-options"></div>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <button class="filter-group-toggle" type="button" aria-expanded="true">
+          <span>Availability</span>
+          <span class="filter-group-arrow" aria-hidden="true"></span>
+        </button>
+        <div class="filter-group-body">
+          <div class="filter-options" id="mobile-availability-options"></div>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <button class="filter-group-toggle" type="button" aria-expanded="true">
+          <span>Price Range</span>
+          <span class="filter-group-arrow" aria-hidden="true"></span>
+        </button>
+        <div class="filter-group-body">
+          <div class="filter-range-header">
+            <output id="mobile-price-output">$0 - $300+</output>
+          </div>
+          <div class="range-grid">
+            <label>
+              <span>Minimum</span>
+              <input type="range" id="mobile-price-min" min="0" max="300" step="25" value="0">
+            </label>
+            <label>
+              <span>Maximum</span>
+              <input type="range" id="mobile-price-max" min="0" max="300" step="25" value="300">
+            </label>
+          </div>
         </div>
       </div>
     </div>

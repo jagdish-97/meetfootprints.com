@@ -39,6 +39,17 @@ body {
     linear-gradient(180deg, #fff6f9 0%, #ffffff 20%, #fff9fb 100%);
 }
 
+.directory-page .home-nav a,
+.directory-page .home-mobile-links a,
+.directory-page .home-service-strip,
+.directory-page .home-cta,
+.directory-page .home-footer-links a,
+.directory-page .home-footer-copy,
+.directory-page .home-footer-contact a,
+.directory-page .home-footer-contact p {
+  font-family: "Nunito", sans-serif;
+}
+
 img {
   display: block;
   max-width: 100%;

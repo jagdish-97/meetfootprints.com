@@ -162,12 +162,11 @@ select {
   color: #fff;
   font-weight: 800;
   box-shadow: 0 12px 26px rgba(145, 25, 73, 0.2);
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 420ms ease, color 420ms ease;
 }
 
 .home-cta:hover,
 .home-secondary-link:hover,
-.home-inline-link:hover,
 .service-card a:hover {
   transform: translateY(-1px);
 }
@@ -233,14 +232,21 @@ select {
 }
 
 .home-hero {
-  padding: 54px 0 36px;
+  padding: 40px 0 52px;
 }
 
 .home-hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
   gap: 44px;
-  align-items: center;
+  align-items: stretch;
+  padding: 28px;
+  border: 1px solid rgba(155, 27, 89, 0.1);
+  border-radius: 40px;
+  background:
+    radial-gradient(circle at top left, rgba(255, 220, 233, 0.8), transparent 34%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 244, 248, 0.95));
+  box-shadow: var(--shadow-soft);
 }
 
 .home-eyebrow,
@@ -278,7 +284,14 @@ select {
 .service-card p,
 .home-therapist-copy,
 .home-feature-text,
-.home-footer-copy {
+.home-footer-copy,
+.home-section-intro,
+.home-cta-band-copy,
+.home-cta-band-note,
+.home-insurance-card li,
+.home-insurance-aside p,
+.home-insurance-note,
+.home-spanish-card p {
   color: var(--ink-700);
   line-height: 1.72;
 }
@@ -308,7 +321,20 @@ select {
   color: var(--rose-950);
   background: rgba(255, 255, 255, 0.72);
   font-weight: 800;
-  transition: transform 180ms ease, background 180ms ease;
+  transition:
+    transform 180ms ease,
+    background 420ms ease,
+    color 420ms ease,
+    border-color 420ms ease,
+    box-shadow 420ms ease;
+}
+
+.home-inline-link:hover {
+  transform: translateY(-1px);
+  color: #fff;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--rose-900), var(--rose-700));
+  box-shadow: 0 12px 24px rgba(145, 25, 73, 0.18);
 }
 
 .home-trust-row {
@@ -346,7 +372,7 @@ select {
 
 .home-hero-visual {
   position: relative;
-  min-height: 610px;
+  min-height: 100%;
 }
 
 .home-hero-orb {
@@ -371,15 +397,16 @@ select {
 }
 
 .home-feature-panel {
-  position: absolute;
-  inset: 40px 0 0 0;
+  position: relative;
+  inset: auto;
   display: grid;
   align-content: start;
-  gap: 28px;
-  padding: 34px;
-  margin-left: 46px;
+  gap: 22px;
+  min-height: 100%;
+  padding: 28px;
+  margin-left: 0;
   border: 1px solid rgba(155, 27, 89, 0.14);
-  border-radius: 38px;
+  border-radius: 32px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.93), rgba(255, 241, 246, 0.9)),
     linear-gradient(135deg, rgba(244, 200, 218, 0.35), rgba(255, 255, 255, 0.18));
@@ -388,8 +415,8 @@ select {
 
 .home-feature-visual {
   position: relative;
-  min-height: 210px;
-  border-radius: 30px;
+  min-height: 150px;
+  border-radius: 24px;
   overflow: hidden;
   background:
     linear-gradient(135deg, rgba(125, 12, 74, 0.9), rgba(210, 114, 157, 0.78)),
@@ -421,8 +448,8 @@ select {
 
 .home-feature-visual-main {
   position: absolute;
-  inset: 22px 22px 56px;
-  border-radius: 24px;
+  inset: 18px 18px 52px;
+  border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.28);
   background:
     linear-gradient(180deg, rgba(255, 248, 251, 0.96), rgba(255, 227, 238, 0.82)),
@@ -435,11 +462,33 @@ select {
     );
 }
 
+.home-feature-visual-main::before,
+.home-feature-visual-main::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  border-radius: 999px;
+  background: rgba(124, 20, 73, 0.14);
+}
+
+.home-feature-visual-main::before {
+  top: 26px;
+  height: 14px;
+  width: 54%;
+}
+
+.home-feature-visual-main::after {
+  top: 56px;
+  height: 10px;
+  width: 72%;
+}
+
 .home-feature-visual-note {
   position: absolute;
-  left: 22px;
-  right: 22px;
-  bottom: 18px;
+  left: 18px;
+  right: 18px;
+  bottom: 14px;
   padding: 10px 14px;
   border-radius: 999px;
   background: rgba(255, 248, 251, 0.86);
@@ -452,9 +501,42 @@ select {
 }
 
 .home-feature-panel-top h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1;
-  max-width: 11ch;
+  font-size: clamp(1.9rem, 3.5vw, 2.9rem);
+  line-height: 0.95;
+  max-width: 9.5ch;
+}
+
+.home-feature-text {
+  margin: 0;
+  max-width: 34ch;
+}
+
+.home-feature-points {
+  display: grid;
+  gap: 10px;
+}
+
+.home-feature-points span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(155, 27, 89, 0.12);
+  color: var(--rose-950);
+  font-size: 0.94rem;
+  font-weight: 800;
+}
+
+.home-feature-points span::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rose-800), var(--rose-600));
 }
 
 .home-mini-profiles {
@@ -551,6 +633,15 @@ select {
   justify-content: space-between;
   gap: 24px;
   margin-bottom: 28px;
+}
+
+.home-section-head-stack {
+  margin-bottom: 22px;
+}
+
+.home-section-intro {
+  max-width: 68ch;
+  margin: 14px 0 0;
 }
 
 .home-services-grid {
@@ -668,6 +759,125 @@ select {
   gap: 18px;
 }
 
+.home-insurance {
+  padding: 0 0 80px;
+}
+
+.home-insurance-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
+  gap: 18px;
+}
+
+.home-insurance-copy,
+.home-insurance-aside,
+.home-spanish-card {
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  box-shadow: var(--shadow-card);
+}
+
+.home-insurance-copy {
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.home-insurance-subhead {
+  margin: 0 0 18px;
+  color: var(--rose-900);
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.home-insurance-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.home-insurance-card {
+  padding: 22px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255, 248, 251, 0.96), rgba(255, 255, 255, 0.88));
+  border: 1px solid rgba(155, 27, 89, 0.1);
+}
+
+.home-insurance-card h3,
+.home-insurance-aside h3,
+.home-spanish-card h2 {
+  margin: 0;
+  color: var(--rose-950);
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.home-insurance-card h3,
+.home-insurance-aside h3 {
+  font-size: 1.75rem;
+}
+
+.home-insurance-card ul {
+  margin: 16px 0 0;
+  padding-left: 18px;
+}
+
+.home-insurance-card li + li {
+  margin-top: 8px;
+}
+
+.home-insurance-aside {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  padding: 28px;
+  background: linear-gradient(180deg, rgba(255, 240, 245, 0.96), rgba(255, 255, 255, 0.9));
+}
+
+.home-insurance-aside p,
+.home-insurance-note,
+.home-spanish-card p,
+.home-cta-band-copy,
+.home-cta-band-note {
+  margin: 0;
+}
+
+.home-insurance-note {
+  font-size: 0.96rem;
+}
+
+.home-spanish-callout {
+  padding: 0 0 80px;
+}
+
+.home-spanish-card {
+  padding: 34px;
+  background:
+    linear-gradient(135deg, rgba(111, 11, 63, 0.98), rgba(181, 69, 119, 0.92)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
+  color: #fff;
+}
+
+.home-spanish-card .home-section-tag,
+.home-spanish-card h2,
+.home-spanish-card p,
+.home-spanish-card .home-spanish-emphasis {
+  color: #fff;
+}
+
+.home-spanish-card h2 {
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  line-height: 0.98;
+  max-width: 11ch;
+}
+
+.home-spanish-emphasis {
+  font-weight: 800;
+  font-style: italic;
+}
+
 .home-therapist-card {
   overflow: hidden;
 }
@@ -729,6 +939,26 @@ select {
   color: #fff;
 }
 
+.home-cta-band-copy,
+.home-cta-band-note {
+  max-width: 60ch;
+  color: rgba(255, 245, 249, 0.92);
+}
+
+.home-cta-band-copy {
+  margin-top: 16px;
+}
+
+.home-cta-band-note {
+  margin-top: 10px;
+  font-size: 0.97rem;
+}
+
+.home-cta-band-note a {
+  color: #fff;
+  font-weight: 800;
+}
+
 .home-cta-light {
   flex-shrink: 0;
   background: #fff;
@@ -788,8 +1018,13 @@ select {
 
   .home-hero-grid,
   .home-two-column,
-  .home-footer-grid {
+  .home-footer-grid,
+  .home-insurance-panel {
     grid-template-columns: 1fr;
+  }
+
+  .home-hero-grid {
+    padding: 22px;
   }
 
   .home-hero-visual {
@@ -797,9 +1032,7 @@ select {
   }
 
   .home-feature-panel {
-    position: relative;
-    inset: auto;
-    margin-left: 0;
+    min-height: auto;
   }
 
   .home-therapist-grid {
@@ -816,7 +1049,8 @@ select {
   .home-trust-row,
   .home-values-grid,
   .home-therapist-grid,
-  .home-services-grid {
+  .home-services-grid,
+  .home-insurance-grid {
     grid-template-columns: 1fr;
   }
 
@@ -858,7 +1092,7 @@ select {
   }
 
   .home-hero {
-    padding-top: 28px;
+    padding-top: 24px;
   }
 
   .home-hero-copy h1 {
@@ -873,9 +1107,17 @@ select {
   .home-value-card,
   .service-card,
   .home-therapist-content,
-  .home-mobile-menu {
+  .home-mobile-menu,
+  .home-insurance-copy,
+  .home-insurance-aside,
+  .home-spanish-card {
     padding-left: 18px;
     padding-right: 18px;
+  }
+
+  .home-hero-grid {
+    padding: 18px;
+    border-radius: 28px;
   }
 
   .mini-profile {

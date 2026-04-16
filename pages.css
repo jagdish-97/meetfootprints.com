@@ -296,8 +296,19 @@
   color: var(--ink-900);
 }
 
+.contact-form select {
+  padding-right: 52px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9' fill='none'%3E%3Cpath d='M1 1.5L7 7.5L13 1.5' stroke='%232d1f26' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-position: calc(100% - 22px) 50%;
+  background-size: 14px 9px;
+  background-repeat: no-repeat;
+}
+
 .contact-form textarea {
-  resize: vertical;
+  resize: none;
 }
 
 .contact-form-full,
@@ -318,22 +329,15 @@
   min-height: 220px;
   margin-bottom: 14px;
   border-radius: 24px;
-  background:
-    linear-gradient(135deg, rgba(255, 226, 236, 0.94), rgba(255, 242, 246, 0.84)),
-    repeating-linear-gradient(45deg, rgba(181, 69, 119, 0.08), rgba(181, 69, 119, 0.08) 18px, rgba(255, 255, 255, 0.2) 18px, rgba(255, 255, 255, 0.2) 36px);
+  background: linear-gradient(135deg, rgba(255, 226, 236, 0.94), rgba(255, 242, 246, 0.84));
   overflow: hidden;
 }
 
-.map-pin {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: var(--rose-900);
-  box-shadow: 0 0 0 10px rgba(155, 27, 89, 0.14);
-  transform: translate(-50%, -50%);
+.map-visual iframe {
+  display: block;
+  width: 100%;
+  min-height: 220px;
+  border: 0;
 }
 
 @media (max-width: 1100px) {

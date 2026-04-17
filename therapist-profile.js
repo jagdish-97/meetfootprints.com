@@ -34,9 +34,6 @@ const profileElements = {
   expectationThree: document.querySelector("#expectation-three"),
   highlightApproach: document.querySelector("#highlight-approach"),
   highlightFit: document.querySelector("#highlight-fit"),
-  headerBookLink: document.querySelector("#header-book-link"),
-  sidebarBookLink: document.querySelector("#sidebar-book-link"),
-  footerBookLink: document.querySelector("#footer-book-link"),
   notFoundState: document.querySelector("#not-found-state")
 };
 
@@ -93,7 +90,6 @@ function renderTherapistProfile(therapist) {
   renderSpecialties(therapist.specialties);
   renderExpectations(therapist);
   renderHighlights(therapist);
-  updateBookLinks(therapist.id);
 }
 
 function renderChipGroup(container, items, tone) {
@@ -151,13 +147,6 @@ function renderExpectations(therapist) {
 function renderHighlights(therapist) {
   profileElements.highlightApproach.textContent = `${therapist.name.split(" ")[0]} brings a supportive style centered on empathy, trust, and practical care.`;
   profileElements.highlightFit.textContent = `This therapist may be a good fit for clients looking for support with ${therapist.specialties.slice(0, 2).join(" and ").toLowerCase()}.`;
-}
-
-function updateBookLinks(therapistId) {
-  const bookingUrl = `book-consultation.html?therapist=${encodeURIComponent(therapistId)}`;
-  profileElements.headerBookLink.href = bookingUrl;
-  profileElements.sidebarBookLink.href = bookingUrl;
-  profileElements.footerBookLink.href = bookingUrl;
 }
 
 function showNotFoundState() {

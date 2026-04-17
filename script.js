@@ -373,13 +373,9 @@ function handleCardActionClick(event) {
     return;
   }
 
-  const therapistId = bookButton.dataset.therapistId;
-  if (!therapistId) {
-    return;
-  }
-
-  const bookingUrl = `https://booking.meetfootprints.com/booking?therapist=${therapistId}`;
-  window.location.href = bookingUrl;
+  const bookingUrl = new URL("book-consultation.html", window.location.href);
+  bookingUrl.searchParams.set("therapist", therapistId);
+  window.location.href = bookingUrl.toString();
 }
 
 function renderFilterOptions() {

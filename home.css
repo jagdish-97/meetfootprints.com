@@ -415,7 +415,8 @@ select {
 
 .home-feature-visual {
   position: relative;
-  min-height: 150px;
+  min-height: 0;
+  aspect-ratio: 3 / 4;
   border-radius: 24px;
   overflow: hidden;
   background:
@@ -451,37 +452,17 @@ select {
   inset: 18px 18px 52px;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.28);
-  background:
-    linear-gradient(180deg, rgba(255, 248, 251, 0.96), rgba(255, 227, 238, 0.82)),
-    repeating-linear-gradient(
-      45deg,
-      rgba(181, 69, 119, 0.08),
-      rgba(181, 69, 119, 0.08) 18px,
-      rgba(255, 255, 255, 0.18) 18px,
-      rgba(255, 255, 255, 0.18) 36px
-    );
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(180deg, rgba(255, 248, 251, 0.98), rgba(255, 233, 240, 0.9));
 }
 
-.home-feature-visual-main::before,
-.home-feature-visual-main::after {
-  content: "";
-  position: absolute;
-  left: 18px;
-  right: 18px;
-  border-radius: 999px;
-  background: rgba(124, 20, 73, 0.14);
-}
-
-.home-feature-visual-main::before {
-  top: 26px;
-  height: 14px;
-  width: 54%;
-}
-
-.home-feature-visual-main::after {
-  top: 56px;
-  height: 10px;
-  width: 72%;
+.home-feature-visual-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
 }
 
 .home-feature-visual-note {
@@ -503,7 +484,7 @@ select {
 .home-feature-panel-top h2 {
   font-size: clamp(1.9rem, 3.5vw, 2.9rem);
   line-height: 0.95;
-  max-width: 9.5ch;
+  max-width: 14ch;
 }
 
 .home-feature-text {
@@ -1035,6 +1016,10 @@ select {
     min-height: auto;
   }
 
+  .home-feature-visual {
+    aspect-ratio: 4 / 5;
+  }
+
   .home-therapist-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1118,6 +1103,22 @@ select {
   .home-hero-grid {
     padding: 18px;
     border-radius: 28px;
+  }
+
+  .home-feature-visual {
+    aspect-ratio: 3 / 4;
+  }
+
+  .home-feature-visual-main {
+    inset: 14px 14px 50px;
+  }
+
+  .home-feature-visual-note {
+    left: 14px;
+    right: 14px;
+    bottom: 12px;
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
   }
 
   .mini-profile {

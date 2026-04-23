@@ -3,6 +3,18 @@ const PAGE_SIZE = 3;
 const menuToggle = document.querySelector("#menu-toggle");
 const mobileMenu = document.querySelector("#mobile-menu");
 const footerYear = document.querySelector("#home-year");
+const LANGUAGE_FILTERS = [
+  { label: "English", aliases: ["English"] },
+  { label: "Español", aliases: ["Spanish", "Espanol", "Español"] },
+  { label: "Русский", aliases: ["Russian", "Русский"] },
+  { label: "中文", aliases: ["Chinese", "Mandarin", "中文"] },
+  { label: "العربية", aliases: ["Arabic", "العربية"] },
+  { label: "தமிழ்", aliases: ["Tamil", "தமிழ்"] },
+  { label: "اردو", aliases: ["Urdu", "اردو"] },
+  { label: "हिंदी", aliases: ["Hindi", "हिंदी"] },
+  { label: "ਪੰਜਾਬੀ", aliases: ["Punjabi", "ਪੰਜਾਬੀ"] },
+  { label: "Bilingual", aliases: ["Bilingual"] }
+];
 const state = {
   therapists: [],
   filteredTherapists: [],
@@ -268,7 +280,10 @@ function buildFilterOptions(therapists) {
   therapists.forEach((therapist) => {
     optionMap.state.add(therapist.location);
     therapist.specialties.forEach((item) => optionMap.specialties.add(item));
-    therapist.languages.forEach((item) => optionMap.languages.add(item));
+    therapist.languages.forEach((item) => {
+      const matchedLanguage = LANGUAGE_FILTERS.find((language) => language.aliases.includes(item));
+      optionMap.languages.add(matchedLanguage ? matchedLanguage.label : item);
+    });
     if (therapist.languages.length > 1) {
       optionMap.languages.add("Bilingual");
     }
@@ -276,8 +291,23 @@ function buildFilterOptions(therapists) {
     optionMap.availability.add(therapist.availability);
   });
 
+  LANGUAGE_FILTERS.forEach((language) => optionMap.languages.add(language.label));
+
   return Object.fromEntries(
-    Object.entries(optionMap).map(([key, values]) => [key, [...values].sort((a, b) => a.localeCompare(b))])
+    Object.entries(optionMap).map(([key, values]) => {
+      if (key !== "languages") {
+        return [key, [...values].sort((a, b) => a.localeCompare(b))];
+      }
+
+      const orderedLanguages = [
+        ...LANGUAGE_FILTERS.map((language) => language.label).filter((label) => values.has(label)),
+        ...[...values]
+          .filter((label) => !LANGUAGE_FILTERS.some((language) => language.label === label))
+          .sort((a, b) => a.localeCompare(b))
+      ];
+
+      return [key, orderedLanguages];
+    })
   );
 }
 
@@ -557,13 +587,8 @@ function getFilteredTherapists() {
     const matchesState = !state.filters.state.length || state.filters.state.includes(therapist.location);
     const matchesSpecialties = !state.filters.specialties.length
       || therapist.specialties.some((item) => state.filters.specialties.includes(item));
-    const matchesLanguages = !state.filters.languages.length || state.filters.languages.some((language) => {
-      if (language === "Bilingual") {
-        return therapist.languages.length > 1;
-      }
-
-      return therapist.languages.includes(language);
-    });
+    const matchesLanguages = !state.filters.languages.length
+      || state.filters.languages.some((language) => matchesLanguageFilter(therapist.languages, language));
     const matchesTherapyTypes = !state.filters.therapyTypes.length
       || therapist.therapyTypes.some((item) => state.filters.therapyTypes.includes(item));
     const matchesAvailability = !state.filters.availability.length
@@ -580,6 +605,19 @@ function getFilteredTherapists() {
       matchesPrice
     ].every(Boolean);
   });
+}
+
+function matchesLanguageFilter(therapistLanguages, selectedLanguage) {
+  if (selectedLanguage === "Bilingual") {
+    return therapistLanguages.length > 1;
+  }
+
+  const languageConfig = LANGUAGE_FILTERS.find((language) => language.label === selectedLanguage);
+  if (!languageConfig) {
+    return therapistLanguages.includes(selectedLanguage);
+  }
+
+  return therapistLanguages.some((language) => languageConfig.aliases.includes(language));
 }
 
 function renderCards(therapists) {

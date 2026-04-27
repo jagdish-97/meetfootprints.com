@@ -642,13 +642,6 @@ function renderCards(therapists) {
           ${therapist.specialties.slice(0, 3).map((item) => `<span class="chip soft">${item}</span>`).join("")}
         </div>
         <p class="card-summary">${buildTherapistSummary(therapist)}</p>
-        <div class="card-price-row">
-          <div>
-            <span class="price-label">Session Rate</span>
-            <span class="price-value">${formatPrice(therapist.price)}</span>
-          </div>
-          <span class="availability ${therapist.availability.toLowerCase()}">${therapist.availability}</span>
-        </div>
       </div>
       <div class="card-actions">
         <button

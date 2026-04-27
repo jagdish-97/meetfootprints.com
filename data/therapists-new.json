@@ -101,7 +101,7 @@
         "specialties": [
             "Somatic",
             "Stress",
-            "depress"
+            "Depression"
         ],
         "languages": [
             "English",
@@ -122,7 +122,7 @@
         "location": "NY",
         "specialties": [
             "Grief",
-            "stress"
+            "Stress"
         ],
         "languages": [
             "English"
@@ -130,7 +130,7 @@
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": "Guiding individuals to reconnect with themselves and find balance through life\u2019s emotional challenges"
+        "summary": "Guiding individuals to reconnect with themselves and find balance through life s emotional challenges"
     },
     {
         "id": "elizabeth-araujo",
@@ -158,7 +158,7 @@
         "title": "Fully Licensed",
         "location": "NY",
         "specialties": [
-            "Marraige Counselling",
+            "Marriage Counselling",
             "parenting challenges",
             "family conflict"
         ],
@@ -178,7 +178,7 @@
         "location": "NY",
         "specialties": [
             "Domestic violence",
-            "Greif",
+            "Grief",
             "interpersonal"
         ],
         "languages": [
@@ -210,7 +210,7 @@
     {
         "id": "ziyanda-ayd",
         "name": "Ziyanda Ayd",
-        "image": NaN,
+        "image": null,
         "title": "LP",
         "location": "NY",
         "specialties": [
@@ -273,7 +273,7 @@
             "ADHD"
         ],
         "languages": [
-            "Engish"
+            "English"
         ],
         "therapyTypes": [],
         "price": null,
@@ -291,7 +291,7 @@
             "Cultural / Ethnic issues"
         ],
         "languages": [
-            "Engish"
+            "English"
         ],
         "therapyTypes": [],
         "price": null,
@@ -393,7 +393,7 @@
     {
         "id": "iris-colome",
         "name": "Iris Colome",
-        "image": NaN,
+        "image": null,
         "title": "LP",
         "location": "NY",
         "specialties": [
@@ -448,7 +448,7 @@
     {
         "id": "carol-cumberbatch",
         "name": "Carol Cumberbatch",
-        "image": NaN,
+        "image": null,
         "title": "Fully Licensed",
         "location": "NY",
         "specialties": [
@@ -466,7 +466,7 @@
     {
         "id": "attakuma-drakes",
         "name": "Attakuma Drakes",
-        "image": NaN,
+        "image": null,
         "title": "LP",
         "location": "NY",
         "specialties": [
@@ -489,7 +489,7 @@
         "location": "NY",
         "specialties": [
             "End-of-Life Care",
-            "depression",
+            "Depression",
             "Anxiety"
         ],
         "languages": [
@@ -539,12 +539,12 @@
     {
         "id": "andrea-franco",
         "name": "Andrea Franco",
-        "image": NaN,
+        "image": null,
         "title": "LP",
         "location": "NY",
         "specialties": [
             "Bipolar Disorder",
-            "dipression"
+            "Depression"
         ],
         "languages": [
             "English"
@@ -561,8 +561,8 @@
         "title": "Fully Licensed",
         "location": "NY",
         "specialties": [
-            "stress",
-            "Dipression"
+            "Stress",
+            "Depression"
         ],
         "languages": [
             "English"
@@ -575,7 +575,7 @@
     {
         "id": "michelle-1099-fuentes",
         "name": "Michelle(1099) Fuentes",
-        "image": NaN,
+        "image": null,
         "title": "Fully Licensed",
         "location": "NY",
         "specialties": [],
@@ -583,7 +583,7 @@
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "khalil-gallop",
@@ -612,7 +612,7 @@
         "location": "NY",
         "specialties": [
             "Anxiety",
-            "depression",
+            "Depression",
             "LGBTQ"
         ],
         "languages": [
@@ -667,7 +667,7 @@
         "title": "Fully Licensed",
         "location": "NY",
         "specialties": [
-            "nterpersonal",
+            "Interpersonal",
             "Autism Spectrum Disorder",
             "Depression"
         ],
@@ -735,12 +735,12 @@
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "erika-gutierrez",
         "name": "Erika Gutierrez",
-        "image": NaN,
+        "image": null,
         "title": "LP",
         "location": "NY",
         "specialties": [
@@ -818,7 +818,7 @@
     {
         "id": "dymond-harris",
         "name": "Dymond Harris",
-        "image": NaN,
+        "image": null,
         "title": "LP",
         "location": "NY",
         "specialties": [
@@ -862,7 +862,7 @@
         "specialties": [
             "Substance Use Disorder",
             "ADHD",
-            "Dipression"
+            "Depression"
         ],
         "languages": [
             "English"
@@ -875,7 +875,7 @@
     {
         "id": "alexia-heutelou",
         "name": "Alexia Heutelou",
-        "image": NaN,
+        "image": null,
         "title": "LP",
         "location": "NY",
         "specialties": [
@@ -899,7 +899,7 @@
         "specialties": [
             "ADHD",
             "Stress",
-            "Dipression"
+            "Depression"
         ],
         "languages": [
             "English"
@@ -912,7 +912,7 @@
     {
         "id": "karen-hsieh",
         "name": "Karen Hsieh",
-        "image": NaN,
+        "image": null,
         "title": "LP",
         "location": "NY",
         "specialties": [
@@ -930,7 +930,7 @@
     {
         "id": "haley-irizarry",
         "name": "Haley Irizarry",
-        "image": NaN,
+        "image": null,
         "title": "LP",
         "location": "NY",
         "specialties": [
@@ -1096,7 +1096,7 @@
     {
         "id": "zade-helena-landegger",
         "name": "Zade Helena Landegger",
-        "image": NaN,
+        "image": null,
         "title": "Fully Licensed",
         "location": "NY",
         "specialties": [
@@ -1114,7 +1114,7 @@
     {
         "id": "fabiola-leonardo",
         "name": "Fabiola Leonardo",
-        "image": NaN,
+        "image": null,
         "title": "LP",
         "location": "NY",
         "specialties": [
@@ -1329,15 +1329,15 @@
     {
         "id": "sara-1099-montoya",
         "name": "Sara (1099) Montoya",
-        "image": NaN,
-        "title": "Fully Licensed",
+        "image": null,
+        "title": null,
         "location": "NY",
         "specialties": [],
         "languages": [],
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "steffan-mosley",
@@ -1380,15 +1380,15 @@
     {
         "id": "andy-emily-ortiz",
         "name": "Andy (Emily) Ortiz",
-        "image": NaN,
-        "title": "LP",
+        "image": null,
+        "title": null,
         "location": "NY",
         "specialties": [],
         "languages": [],
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "jade-otero",
@@ -1436,7 +1436,7 @@
     {
         "id": "atiana-pjeternikaj",
         "name": "Atiana Pjeternikaj",
-        "image": NaN,
+        "image": null,
         "title": "LP",
         "location": "NY",
         "specialties": [
@@ -1585,7 +1585,7 @@
     {
         "id": "jessica-roman",
         "name": "Jessica Roman",
-        "image": NaN,
+        "image": null,
         "title": "LP",
         "location": "NY",
         "specialties": [
@@ -1607,7 +1607,7 @@
     {
         "id": "irene-rong",
         "name": "Irene Rong",
-        "image": NaN,
+        "image": null,
         "title": "LP",
         "location": "NY",
         "specialties": [
@@ -1619,7 +1619,7 @@
             "Gambling Addiction"
         ],
         "languages": [
-            "English/Cantonese)"
+            "English/Cantonese"
         ],
         "therapyTypes": [],
         "price": null,
@@ -1650,7 +1650,7 @@
     {
         "id": "savannah-ruiz-rivera",
         "name": "Savannah Ruiz-Rivera",
-        "image": NaN,
+        "image": null,
         "title": "LP",
         "location": "NY",
         "specialties": [
@@ -1688,7 +1688,7 @@
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": "Walking alongside individuals as they heal, rebuild, and rediscover strength through life\u2019s toughest challenges."
+        "summary": "Walking alongside individuals as they heal, rebuild, and rediscover strength through lifes toughest challenges."
     },
     {
         "id": "stephany-sanchez",
@@ -1702,7 +1702,7 @@
             "Domestic Violence",
             "Trauma",
             "Self-esteem",
-            "Women\u2019s Issues"
+            "Womens Issues"
         ],
         "languages": [
             "English/ Spanish"
@@ -1738,7 +1738,7 @@
     {
         "id": "abelardo-santiago",
         "name": "Abelardo Santiago",
-        "image": NaN,
+        "image": null,
         "title": "LP",
         "location": "NY",
         "specialties": [
@@ -1782,15 +1782,15 @@
     {
         "id": "tatyana-scarlett",
         "name": "Tatyana Scarlett",
-        "image": NaN,
-        "title": "LP",
+        "image": null,
+        "title": null,
         "location": "NY",
         "specialties": [],
         "languages": [],
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "steven-schilling",
@@ -1854,7 +1854,7 @@
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": "Working collaboratively to help individuals build resilience and navigate life\u2019s challenges with confidence"
+        "summary": "Working collaboratively to help individuals build resilience and navigate lifes challenges with confidence"
     },
     {
         "id": "alyssa-solda",
@@ -1902,7 +1902,7 @@
     {
         "id": "treasure-tabor",
         "name": "Treasure Tabor",
-        "image": NaN,
+        "image": null,
         "title": "LP",
         "location": "NY",
         "specialties": [
@@ -1973,7 +1973,7 @@
             "Body Image Issues",
             "Depression",
             "Self-esteem",
-            "Women\u2019s Issues"
+            "Womens Issues"
         ],
         "languages": [
             "English"
@@ -2008,7 +2008,7 @@
     {
         "id": "karen-b-vautor-laplaceliere",
         "name": "Karen B Vautor Laplaceliere",
-        "image": NaN,
+        "image": null,
         "title": "LP",
         "location": "NY",
         "specialties": [
@@ -2027,15 +2027,15 @@
     {
         "id": "betsy-paulino-vega",
         "name": "Betsy (Paulino) Vega",
-        "image": NaN,
-        "title": "Fully Licensed",
+        "image": null,
+        "title": null,
         "location": "NY",
         "specialties": [],
         "languages": [],
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "ivey-washington",
@@ -2131,274 +2131,274 @@
     {
         "id": "mercedes-vanegas",
         "name": "Mercedes Vanegas",
-        "image": NaN,
-        "title": NaN,
+        "image": null,
+        "title": null,
         "location": "NY",
         "specialties": [],
         "languages": [],
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "olivette-johnson",
         "name": "Olivette Johnson",
-        "image": NaN,
-        "title": NaN,
+        "image": null,
+        "title": null,
         "location": "NY",
         "specialties": [],
         "languages": [],
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "veronica-guijarro",
         "name": "Veronica Guijarro",
-        "image": NaN,
-        "title": NaN,
+        "image": null,
+        "title": null,
         "location": "NY",
         "specialties": [],
         "languages": [],
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "aya-taraf",
         "name": "Aya Taraf",
-        "image": NaN,
-        "title": NaN,
+        "image": null,
+        "title": null,
         "location": "NY",
         "specialties": [],
         "languages": [],
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "shanaya-smith",
         "name": "Shanaya Smith",
-        "image": NaN,
-        "title": NaN,
+        "image": null,
+        "title": null,
         "location": "NY",
         "specialties": [],
         "languages": [],
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "elaine-marmolejos",
         "name": "Elaine Marmolejos",
-        "image": NaN,
-        "title": NaN,
+        "image": null,
+        "title": null,
         "location": "NY",
         "specialties": [],
         "languages": [],
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "kathy-ann-best",
         "name": "Kathy Ann Best",
-        "image": NaN,
-        "title": NaN,
+        "image": null,
+        "title": null,
         "location": "NY",
         "specialties": [],
         "languages": [],
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "zinnia-islam",
         "name": "Zinnia Islam",
-        "image": NaN,
-        "title": NaN,
+        "image": null,
+        "title": null,
         "location": "NY",
         "specialties": [],
         "languages": [],
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "mayra-rodriguez",
         "name": "Mayra Rodriguez",
-        "image": NaN,
-        "title": NaN,
+        "image": null,
+        "title": null,
         "location": "NY",
         "specialties": [],
         "languages": [],
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "la-najah-curry",
-        "name": "La\u2019Najah Curry",
-        "image": NaN,
-        "title": NaN,
+        "name": "La Najah Curry",
+        "image": null,
+        "title": null,
         "location": "NY",
         "specialties": [],
         "languages": [],
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "chung-won-lee",
         "name": "Chung-Won Lee",
-        "image": NaN,
-        "title": NaN,
+        "image": null,
+        "title": null,
         "location": "NY",
         "specialties": [],
         "languages": [],
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "rebecca-carter",
         "name": "Rebecca Carter",
-        "image": NaN,
-        "title": NaN,
+        "image": null,
+        "title": null,
         "location": "NY",
         "specialties": [],
         "languages": [],
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "justa-valerio",
         "name": "Justa Valerio",
-        "image": NaN,
-        "title": NaN,
+        "image": null,
+        "title": null,
         "location": "NY",
         "specialties": [],
         "languages": [],
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "hanna-deborah-leader",
         "name": "Hanna Deborah Leader",
-        "image": NaN,
-        "title": NaN,
+        "image": null,
+        "title": null,
         "location": "NY",
         "specialties": [],
         "languages": [],
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "nina-goodman",
         "name": "Nina Goodman",
-        "image": NaN,
-        "title": NaN,
+        "image": null,
+        "title": null,
         "location": "NY",
         "specialties": [],
         "languages": [],
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "keila-macias-moreira",
         "name": "Keila Macias-Moreira",
-        "image": NaN,
-        "title": NaN,
+        "image": null,
+        "title": null,
         "location": "NY",
         "specialties": [],
         "languages": [],
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "shanell-hassell",
         "name": "Shanell Hassell",
-        "image": NaN,
-        "title": NaN,
+        "image": null,
+        "title": null,
         "location": "NY",
         "specialties": [],
         "languages": [],
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "kortney-grayson",
         "name": "Kortney Grayson",
-        "image": NaN,
-        "title": NaN,
+        "image": null,
+        "title": null,
         "location": "NY",
         "specialties": [],
         "languages": [],
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "chelsie-reid",
         "name": "Chelsie Reid",
-        "image": NaN,
-        "title": NaN,
+        "image": null,
+        "title": null,
         "location": "NY",
         "specialties": [],
         "languages": [],
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "kartum-massaquoi",
         "name": "Kartum Massaquoi",
-        "image": NaN,
-        "title": NaN,
+        "image": null,
+        "title": null,
         "location": "NY",
         "specialties": [],
         "languages": [],
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     },
     {
         "id": "william-dunn",
         "name": "William Dunn",
-        "image": NaN,
-        "title": NaN,
+        "image": null,
+        "title": null,
         "location": "NY",
         "specialties": [],
         "languages": [],
         "therapyTypes": [],
         "price": null,
         "availability": "Available",
-        "summary": NaN
+        "summary": null
     }
 ]

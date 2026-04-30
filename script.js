@@ -18,7 +18,9 @@ const LANGUAGE_FILTERS = [
 const state = {
   therapists: [],
   filteredTherapists: [],
+  displayedTherapists: [],
   currentPage: 1,
+  showingRecommendations: false,
   filters: {
     search: "",
     state: [],
@@ -557,19 +559,35 @@ function updateUrlFromState() {
 
 function render(resetPage = false) {
   state.filteredTherapists = getFilteredTherapists();
-  const totalPages = Math.max(1, Math.ceil(state.filteredTherapists.length / PAGE_SIZE));
-  if (resetPage) {
+
+  if (state.filteredTherapists.length === 0 && hasActiveFilters()) {
+    state.showingRecommendations = true;
+    state.displayedTherapists = getRecommendedTherapists(3);
+  } else {
+    state.showingRecommendations = false;
+    state.displayedTherapists = state.filteredTherapists;
+  }
+
+  const totalPages = state.showingRecommendations
+    ? 1
+    : Math.max(1, Math.ceil(state.displayedTherapists.length / PAGE_SIZE));
+
+  if (resetPage || state.showingRecommendations) {
     state.currentPage = 1;
   } else {
     state.currentPage = Math.min(state.currentPage, totalPages);
   }
-  const paginatedTherapists = paginateTherapists(state.filteredTherapists, state.currentPage);
+
+  const paginatedTherapists = state.showingRecommendations
+    ? state.displayedTherapists
+    : paginateTherapists(state.displayedTherapists, state.currentPage);
+
   updateUrlFromState();
   renderCards(paginatedTherapists);
-  renderResultsCount(state.filteredTherapists.length);
+  renderResultsCount(state.filteredTherapists.length, state.displayedTherapists.length, state.showingRecommendations);
   renderActiveFilters();
   renderPagination(totalPages);
-  toggleNoResults(state.filteredTherapists.length === 0);
+  toggleNoResults(state.showingRecommendations);
 }
 
 function getFilteredTherapists() {
@@ -593,7 +611,10 @@ function getFilteredTherapists() {
       || therapist.therapyTypes.some((item) => state.filters.therapyTypes.includes(item));
     const matchesAvailability = !state.filters.availability.length
       || state.filters.availability.includes(therapist.availability);
-    const matchesPrice = therapist.price >= state.filters.priceMin && therapist.price <= state.filters.priceMax;
+    const hasActivePriceFilter = state.filters.priceMin > 0 || state.filters.priceMax < 300;
+    const matchesPrice = therapist.price == null
+      ? !hasActivePriceFilter
+      : therapist.price >= state.filters.priceMin && therapist.price <= state.filters.priceMax;
 
     return [
       matchesSearch,
@@ -605,6 +626,51 @@ function getFilteredTherapists() {
       matchesPrice
     ].every(Boolean);
   });
+}
+
+function getRecommendedTherapists(minimumCount = 3) {
+  const searchTerm = state.filters.search.toLowerCase();
+  const scored = state.therapists.map((therapist) => {
+    let score = 0;
+
+    if (searchTerm) {
+      const haystack = [
+        therapist.name,
+        therapist.title,
+        therapist.location,
+        ...therapist.specialties,
+        ...therapist.languages,
+        ...therapist.therapyTypes
+      ].join(" ").toLowerCase();
+      if (haystack.includes(searchTerm)) {
+        score += 5;
+      }
+    }
+
+    if (state.filters.state.includes(therapist.location)) {
+      score += 4;
+    }
+
+    score += therapist.specialties.filter((item) => state.filters.specialties.includes(item)).length * 3;
+    score += state.filters.languages.filter((language) => matchesLanguageFilter(therapist.languages, language)).length * 3;
+    score += therapist.therapyTypes.filter((item) => state.filters.therapyTypes.includes(item)).length * 2;
+
+    if (state.filters.availability.includes(therapist.availability)) {
+      score += 1;
+    }
+
+    if (therapist.price != null && therapist.price >= state.filters.priceMin && therapist.price <= state.filters.priceMax) {
+      score += 1;
+    }
+
+    return { therapist, score };
+  });
+
+  const recommendations = scored
+    .sort((left, right) => right.score - left.score || left.therapist.name.localeCompare(right.therapist.name))
+    .map((entry) => entry.therapist);
+
+  return recommendations.slice(0, Math.max(minimumCount, PAGE_SIZE));
 }
 
 function matchesLanguageFilter(therapistLanguages, selectedLanguage) {
@@ -682,13 +748,19 @@ function buildTherapistSummary(therapist) {
   return `Specializes in ${specialties}. Offers ${therapyTypes.toLowerCase()} sessions.`;
 }
 
-function renderResultsCount(total) {
-  const noun = total === 1 ? "therapist" : "therapists";
-  elements.resultsCount.textContent = `Showing ${total} ${noun}`;
+function renderResultsCount(totalMatches, displayedCount, showingRecommendations) {
+  if (showingRecommendations) {
+    const noun = displayedCount === 1 ? "therapist" : "therapists";
+    elements.resultsCount.textContent = `Showing ${displayedCount} recommended ${noun}`;
+    return;
+  }
+
+  const noun = totalMatches === 1 ? "therapist" : "therapists";
+  elements.resultsCount.textContent = `Showing ${totalMatches} ${noun}`;
 }
 
 function renderPagination(totalPages) {
-  if (state.filteredTherapists.length === 0 || totalPages <= 1) {
+  if (state.showingRecommendations || state.filteredTherapists.length === 0 || totalPages <= 1) {
     elements.pagination.classList.add("hidden");
     elements.pagination.replaceChildren();
     return;
@@ -784,7 +856,13 @@ function renderActiveFilters() {
 
 function toggleNoResults(hasNoResults) {
   elements.noResults.classList.toggle("hidden", !hasNoResults);
-  elements.cardsGrid.classList.toggle("hidden", hasNoResults);
+}
+
+function hasActiveFilters() {
+  return Boolean(state.filters.search)
+    || FILTER_KEYS.some((key) => state.filters[key].length > 0)
+    || state.filters.priceMin > 0
+    || state.filters.priceMax < 300;
 }
 
 function clearAllFilters() {

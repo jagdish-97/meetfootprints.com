@@ -846,7 +846,7 @@ function renderActiveFilters() {
     pill.className = "filter-pill";
     pill.innerHTML = `
       <span>${entry.label}</span>
-      <button type="button" aria-label="Remove ${entry.label}" data-remove-filter data-key="${entry.key}" data-value="${entry.value}">Ã—</button>
+      <button type="button" aria-label="Remove ${entry.label}" data-remove-filter data-key="${entry.key}" data-value="${entry.value}">X</button>
     `;
     fragment.appendChild(pill);
   });

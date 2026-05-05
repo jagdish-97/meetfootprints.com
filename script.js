@@ -592,6 +592,11 @@ function render(resetPage = false) {
 
 function getFilteredTherapists() {
   return state.therapists.filter((therapist) => {
+    const hasDisplayTitle = typeof therapist.title === "string" && therapist.title.trim().length > 0;
+    if (!hasDisplayTitle) {
+      return false;
+    }
+
     const searchTerm = state.filters.search.toLowerCase();
     const matchesSearch = !searchTerm || [
       therapist.name,
@@ -630,7 +635,9 @@ function getFilteredTherapists() {
 
 function getRecommendedTherapists(minimumCount = 3) {
   const searchTerm = state.filters.search.toLowerCase();
-  const scored = state.therapists.map((therapist) => {
+  const scored = state.therapists
+    .filter((therapist) => typeof therapist.title === "string" && therapist.title.trim().length > 0)
+    .map((therapist) => {
     let score = 0;
 
     if (searchTerm) {
@@ -663,8 +670,8 @@ function getRecommendedTherapists(minimumCount = 3) {
       score += 1;
     }
 
-    return { therapist, score };
-  });
+      return { therapist, score };
+    });
 
   const recommendations = scored
     .sort((left, right) => right.score - left.score || left.therapist.name.localeCompare(right.therapist.name))

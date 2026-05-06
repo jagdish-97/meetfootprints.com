@@ -73,12 +73,13 @@ const elements = {
   mobileFilters: document.querySelector("#mobile-filters"),
   mobileBackdrop: document.querySelector("#mobile-filters-backdrop"),
   applyMobileFilters: document.querySelector("#apply-mobile-filters"),
-  priceMin: document.querySelector("#price-min"),
-  priceMax: document.querySelector("#price-max"),
-  mobilePriceMin: document.querySelector("#mobile-price-min"),
-  mobilePriceMax: document.querySelector("#mobile-price-max"),
-  priceOutput: document.querySelector("#price-output"),
-  mobilePriceOutput: document.querySelector("#mobile-price-output"),
+  // Price controls temporarily disabled while pricing structure is being revised.
+  priceMin: null,
+  priceMax: null,
+  mobilePriceMin: null,
+  mobilePriceMax: null,
+  priceOutput: null,
+  mobilePriceOutput: null,
   optionBuckets: {
     state: [document.querySelector("#state-options"), document.querySelector("#mobile-state-options")],
     specialties: [document.querySelector("#specialties-options"), document.querySelector("#mobile-specialties-options")],
@@ -332,9 +333,7 @@ function attachEventListeners() {
   elements.mobileBackdrop.addEventListener("click", closeMobileFilters);
   elements.applyMobileFilters.addEventListener("click", closeMobileFilters);
 
-  [elements.priceMin, elements.priceMax, elements.mobilePriceMin, elements.mobilePriceMax].forEach((input) => {
-    input.addEventListener("input", handlePriceInput);
-  });
+  // Price inputs temporarily disabled while pricing structure is being revised.
 
   elements.activeFilters.addEventListener("click", (event) => {
     const button = event.target.closest("[data-remove-filter]");
@@ -346,11 +345,7 @@ function attachEventListeners() {
     if (key === "search") {
       state.filters.search = "";
       elements.searchInput.value = "";
-    } else if (key === "price") {
-      state.filters.priceMin = 0;
-      state.filters.priceMax = 300;
-      syncRangeInputs();
-    } else {
+    } else if (key !== "price") {
       state.filters[key] = state.filters[key].filter((item) => item !== value);
       syncCheckboxes();
     }
@@ -482,6 +477,11 @@ function syncCheckboxes() {
 }
 
 function syncRangeInputs() {
+  if (!elements.priceMin || !elements.priceMax || !elements.mobilePriceMin || !elements.mobilePriceMax
+    || !elements.priceOutput || !elements.mobilePriceOutput) {
+    return;
+  }
+
   const min = state.filters.priceMin;
   const max = state.filters.priceMax;
 
@@ -511,16 +511,7 @@ function hydrateStateFromUrl() {
     state.filters[key] = raw.split(",").map((item) => decodeURIComponent(item)).filter(Boolean);
   });
 
-  const urlMin = Number(params.get("priceMin"));
-  const urlMax = Number(params.get("priceMax"));
   const urlPage = Number(params.get("page"));
-
-  if (!Number.isNaN(urlMin) && urlMin >= 0) {
-    state.filters.priceMin = urlMin;
-  }
-  if (!Number.isNaN(urlMax) && urlMax > 0) {
-    state.filters.priceMax = urlMax;
-  }
   if (!Number.isNaN(urlPage) && urlPage > 0) {
     state.currentPage = urlPage;
   }
@@ -541,13 +532,6 @@ function updateUrlFromState() {
     }
   });
 
-  if (state.filters.priceMin > 0) {
-    params.set("priceMin", String(state.filters.priceMin));
-  }
-
-  if (state.filters.priceMax < 300) {
-    params.set("priceMax", String(state.filters.priceMax));
-  }
   if (state.currentPage > 1) {
     params.set("page", String(state.currentPage));
   }
@@ -616,19 +600,13 @@ function getFilteredTherapists() {
       || therapist.therapyTypes.some((item) => state.filters.therapyTypes.includes(item));
     const matchesAvailability = !state.filters.availability.length
       || state.filters.availability.includes(therapist.availability);
-    const hasActivePriceFilter = state.filters.priceMin > 0 || state.filters.priceMax < 300;
-    const matchesPrice = therapist.price == null
-      ? !hasActivePriceFilter
-      : therapist.price >= state.filters.priceMin && therapist.price <= state.filters.priceMax;
-
     return [
       matchesSearch,
       matchesState,
       matchesSpecialties,
       matchesLanguages,
       matchesTherapyTypes,
-      matchesAvailability,
-      matchesPrice
+      matchesAvailability
     ].every(Boolean);
   });
 }
@@ -666,12 +644,8 @@ function getRecommendedTherapists(minimumCount = 3) {
       score += 1;
     }
 
-    if (therapist.price != null && therapist.price >= state.filters.priceMin && therapist.price <= state.filters.priceMax) {
-      score += 1;
-    }
-
-      return { therapist, score };
-    });
+    return { therapist, score };
+  });
 
   const recommendations = scored
     .sort((left, right) => right.score - left.score || left.therapist.name.localeCompare(right.therapist.name))
@@ -840,14 +814,6 @@ function renderActiveFilters() {
     state.filters[key].forEach((value) => entries.push({ key, value, label: value }));
   });
 
-  if (state.filters.priceMin > 0 || state.filters.priceMax < 300) {
-    entries.push({
-      key: "price",
-      value: `${state.filters.priceMin}-${state.filters.priceMax}`,
-      label: `Price: ${formatPrice(state.filters.priceMin)} - ${state.filters.priceMax >= 300 ? "$300+" : formatPrice(state.filters.priceMax)}`
-    });
-  }
-
   entries.forEach((entry) => {
     const pill = document.createElement("div");
     pill.className = "filter-pill";
@@ -867,9 +833,7 @@ function toggleNoResults(hasNoResults) {
 
 function hasActiveFilters() {
   return Boolean(state.filters.search)
-    || FILTER_KEYS.some((key) => state.filters[key].length > 0)
-    || state.filters.priceMin > 0
-    || state.filters.priceMax < 300;
+    || FILTER_KEYS.some((key) => state.filters[key].length > 0);
 }
 
 function clearAllFilters() {

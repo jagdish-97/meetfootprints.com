@@ -2402,6 +2402,19 @@
     "summary": ""
   },
   {
+    "id": "cherise-infante",
+    "name": "Cherise Infante",
+    "image": "data/portraits/cherise-infante.jpg",
+    "title": "MHC-LP",
+    "location": "NY",
+    "specialties": [],
+    "languages": [],
+    "therapyTypes": [],
+    "price": null,
+    "availability": "Available",
+    "summary": ""
+  },
+  {
     "id": "siham-abdelqader",
     "name": "Siham Abdelqader",
     "image": "https://img1.wsimg.com/isteam/ip/be3b4275-20eb-4372-92a9-bcc3a138027c/Siham%20Pic%202.jpg/:/cr=t:9.58%25,l:0%25,w:100%25,h:50.13%25/rs=w:388,h:291.72932330827064,cg:true",

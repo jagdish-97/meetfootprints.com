@@ -1,4 +1,4 @@
-﻿const profileFallbackTherapists = [
+const profileFallbackTherapists = [
   {
     id: "siham-abdelqader",
     name: "Siham Abdelqader",
@@ -8,11 +8,12 @@
     specialties: ["Depression", "Anxiety", "Trauma"],
     languages: ["English", "Arabic"],
     therapyTypes: ["Individual", "Family"],
-    price: 165,
     availability: "Available",
     summary: "Values multiculturalism, cultural awareness, compassion, and empathy. Experienced supporting clients with depression, anxiety, trauma, self-esteem, stress management, and family or marital conflicts."
   }
 ];
+
+const STANDARD_SESSION_RATE = 150;
 
 const profileElements = {
   profileName: document.querySelector("#profile-name"),
@@ -75,7 +76,7 @@ function renderTherapistProfile(therapist) {
   profileElements.profileRole.textContent = `${therapist.title} | ${therapist.location}`;
   profileElements.profileSummary.textContent = therapist.summary;
   profileElements.heroLocation.textContent = therapist.location;
-  profileElements.heroPrice.textContent = formatPrice(therapist.price);
+  profileElements.heroPrice.textContent = formatPrice(STANDARD_SESSION_RATE);
   profileElements.heroAvailability.textContent = therapist.availability;
 
   profileElements.profileImage.src = therapist.image || "data/portraits/portrait.svg";
@@ -179,3 +180,8 @@ function formatPrice(value) {
 }
 
 initTherapistProfile();
+
+
+
+
+

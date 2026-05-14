@@ -1,6 +1,8 @@
-﻿const BOOKED_SLOTS_KEY = "footprints-booked-slots";
+const BOOKED_SLOTS_KEY = "footprints-booked-slots";
 const DEFAULT_TIME_BATCH = 6;
 const DEFAULT_DATE_BATCH = 8;
+
+const STANDARD_SESSION_RATE = 150;
 
 const bookingState = {
   therapists: [],
@@ -24,7 +26,6 @@ const bookingFallbackTherapists = [
     specialties: ["Depression", "Anxiety", "Trauma"],
     languages: ["English", "Arabic"],
     therapyTypes: ["Individual", "Family"],
-    price: 165,
     availability: "Available",
     summary: "Values multiculturalism, cultural awareness, compassion, and empathy. Experienced supporting clients with depression, anxiety, trauma, self-esteem, stress management, and family or marital conflicts."
   }
@@ -120,7 +121,7 @@ function renderTherapistDetails() {
   bookingElements.therapistImage.alt = therapist.name;
   bookingElements.therapistName.textContent = therapist.name;
   bookingElements.therapistRole.textContent = `${therapist.title} | ${therapist.location} | ${therapist.languages.join(", ")}`;
-  bookingElements.therapistPrice.textContent = formatPrice(therapist.price);
+  bookingElements.therapistPrice.textContent = formatPrice(STANDARD_SESSION_RATE);
   bookingElements.therapistAvailability.textContent = therapist.availability;
 }
 
@@ -643,3 +644,8 @@ function stripTime(date) {
 }
 
 initBookingPage();
+
+
+
+
+

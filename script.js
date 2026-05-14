@@ -1,4 +1,4 @@
-﻿const FILTER_KEYS = ["state", "specialties", "languages", "therapyTypes", "availability"];
+const FILTER_KEYS = ["state", "specialties", "languages", "therapyTypes", "availability"];
 const PAGE_SIZE = 3;
 const menuToggle = document.querySelector("#menu-toggle");
 const mobileMenu = document.querySelector("#mobile-menu");
@@ -99,7 +99,6 @@ const fallbackTherapists = [
     specialties: ["Depression", "Anxiety", "Trauma"],
     languages: ["English", "Arabic"],
     therapyTypes: ["Individual", "Family"],
-    price: 165,
     availability: "Available",
     summary: "Values multiculturalism, cultural awareness, compassion, and empathy. Experienced supporting clients with depression, anxiety, trauma, self-esteem, stress management, and family or marital conflicts."
   },
@@ -112,7 +111,6 @@ const fallbackTherapists = [
     specialties: ["Trauma", "Empowerment", "Personal Growth"],
     languages: ["English"],
     therapyTypes: ["Individual", "Trauma-Informed"],
-    price: 175,
     availability: "Limited",
     summary: "Creates a safe space where clients feel seen, heard, and empowered. Practices from a trauma-informed lens with empathy, cultural humility, and collaboration."
   },
@@ -125,7 +123,6 @@ const fallbackTherapists = [
     specialties: ["Person-Centered", "Group Therapy", "Multicultural"],
     languages: ["English"],
     therapyTypes: ["Individual", "Group"],
-    price: 145,
     availability: "Available",
     summary: "Follows a person-centered approach and believes treatment plans should be tailored to each client. Brings a versatile style and works across cultures and group settings."
   },
@@ -138,7 +135,6 @@ const fallbackTherapists = [
     specialties: ["CBT", "Life Coaching", "Strengths"],
     languages: ["English"],
     therapyTypes: ["Individual", "Supportive"],
-    price: 155,
     availability: "Available",
     summary: "Brings over five years of coaching experience and dual master's degrees in school counseling and mental health counseling, with a strong focus on helping people overcome obstacles and realize their potential."
   },
@@ -151,7 +147,6 @@ const fallbackTherapists = [
     specialties: ["Trauma", "Substance Use", "Anxiety"],
     languages: ["English"],
     therapyTypes: ["Individual", "CBT"],
-    price: 190,
     availability: "Waitlist",
     summary: "Works to help clients feel safe, heard, and understood in a supportive, judgement-free environment. Draws from person-centered, motivational interviewing, CBT, and solution-focused approaches."
   },
@@ -164,7 +159,6 @@ const fallbackTherapists = [
     specialties: ["Trauma", "Anxiety", "Depression"],
     languages: ["English", "Spanish"],
     therapyTypes: ["Individual", "Mindfulness"],
-    price: 130,
     availability: "Available",
     summary: "Has over eight years of psychotherapy experience and uses person-centered, cognitive behavioral, and mindfulness approaches with children and adults working through trauma, anxiety, and depression."
   },
@@ -177,7 +171,6 @@ const fallbackTherapists = [
     specialties: ["Personalized Care", "Counseling", "Support"],
     languages: ["English"],
     therapyTypes: ["Individual", "Supportive"],
-    price: 180,
     availability: "Limited",
     summary: "Brings more than 20 years of expertise to mental health counseling and focuses on creating supportive environments with personalized therapeutic interventions tailored to each person's needs."
   },
@@ -190,7 +183,6 @@ const fallbackTherapists = [
     specialties: ["Client Care", "Case Management", "Life Challenges"],
     languages: ["English"],
     therapyTypes: ["Individual", "Supportive"],
-    price: 125,
     availability: "Available",
     summary: "Brings a strong foundation in interpersonal communication and a deep commitment to helping people navigate difficult circumstances with compassionate, client-centered support."
   },
@@ -203,7 +195,6 @@ const fallbackTherapists = [
     specialties: ["CBT", "DBT", "Mindfulness"],
     languages: ["English"],
     therapyTypes: ["Individual", "ACT"],
-    price: 160,
     availability: "Available",
     summary: "Blends traditional approaches like CBT and DBT with Internal Family Systems, ACT, mindfulness, and body-based awareness, helping clients reconnect with themselves through compassion and collaboration."
   },
@@ -216,7 +207,6 @@ const fallbackTherapists = [
     specialties: ["Compassion", "Collaboration", "Supportive Care"],
     languages: ["English"],
     therapyTypes: ["Individual", "Supportive"],
-    price: 170,
     availability: "Waitlist",
     summary: "Strives to create a safe, compassionate, and understanding space, with a strong belief that effective therapy grows from a trusting therapeutic relationship and collaborative pacing."
   },
@@ -229,7 +219,6 @@ const fallbackTherapists = [
     specialties: ["Anxiety", "Chronic Illness", "CBT"],
     languages: ["English"],
     therapyTypes: ["Individual", "Person-Centered"],
-    price: 150,
     availability: "Available",
     summary: "Offers a safe and open space to build rapport and work through current stressors, using cognitive behavioral therapy and person-centered therapy to support anxiety, chronic illness, and emotional processing."
   },
@@ -242,7 +231,6 @@ const fallbackTherapists = [
     specialties: ["Adolescents", "Couples", "Families"],
     languages: ["English"],
     therapyTypes: ["Individual", "Couples"],
-    price: 210,
     availability: "Limited",
     summary: "Creates a supportive space for individuals, adolescents, couples, and families to work through life changes, improve communication, and build healthier, more confident relationships."
   }
@@ -882,5 +870,10 @@ function debounce(callback, delay) {
 }
 
 init();
+
+
+
+
+
 
 

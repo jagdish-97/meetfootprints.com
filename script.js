@@ -3,6 +3,12 @@ const PAGE_SIZE = 3;
 const menuToggle = document.querySelector("#menu-toggle");
 const mobileMenu = document.querySelector("#mobile-menu");
 const footerYear = document.querySelector("#home-year");
+const loginModal = document.querySelector("#login-modal");
+const openLoginModalButton = document.querySelector("#open-login-modal");
+const therapistLoginForm = document.querySelector("#therapist-login-form");
+const therapistLoginEmailInput = document.querySelector("#therapist-login-email-input");
+const therapistLoginPasswordInput = document.querySelector("#therapist-login-password-input");
+const loginModalStatus = document.querySelector("#login-modal-status");
 const LANGUAGE_FILTERS = [
   { label: "English", aliases: ["English"] },
   { label: "Español", aliases: ["Spanish", "Espanol", "Español"] },
@@ -247,16 +253,10 @@ async function init() {
 }
 
 async function loadTherapists() {
-  try {
-    const response = await fetch("data/therapists.json");
-    if (!response.ok) {
-      throw new Error("Unable to load therapists JSON.");
-    }
-    return await response.json();
-  } catch (error) {
-    console.warn("Falling back to inline therapist data.", error);
-    return fallbackTherapists;
-  }
+  return window.therapistDataApi.loadTherapists({
+    fallbackUrl: "data/therapists.json",
+    fallbackData: fallbackTherapists
+  });
 }
 
 function buildFilterOptions(therapists) {
@@ -269,7 +269,9 @@ function buildFilterOptions(therapists) {
   };
 
   therapists.forEach((therapist) => {
-    optionMap.state.add(therapist.location);
+    if (therapist.location) {
+      optionMap.state.add(therapist.location);
+    }
     therapist.specialties.forEach((item) => optionMap.specialties.add(item));
     therapist.languages.forEach((item) => {
       const matchedLanguage = LANGUAGE_FILTERS.find((language) => language.aliases.includes(item));
@@ -304,6 +306,7 @@ function buildFilterOptions(therapists) {
 
 function attachEventListeners() {
   initFilterGroupToggles();
+  initLoginModal();
 
   elements.searchInput.addEventListener("input", debounce((event) => {
     state.filters.search = event.target.value.trim();
@@ -352,6 +355,68 @@ function attachEventListeners() {
       state.currentPage = nextPage;
       render();
     }
+  });
+}
+
+function initLoginModal() {
+  if (!loginModal || !openLoginModalButton || !therapistLoginForm || !loginModalStatus) {
+    return;
+  }
+
+  openLoginModalButton.addEventListener("click", openLoginModal);
+  loginModal.addEventListener("click", (event) => {
+    if (event.target.matches("[data-close-login-modal]")) {
+      closeLoginModal();
+    }
+  });
+
+  therapistLoginForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    loginModalStatus.textContent = "Signing in...";
+    const result = await window.therapistDataApi.loginWithPassword(
+      therapistLoginEmailInput.value,
+      therapistLoginPasswordInput.value
+    );
+
+    if (result.error) {
+      loginModalStatus.textContent = result.error.message;
+      return;
+    }
+
+    loginModalStatus.textContent = "Sign-in successful. Redirecting to the therapist portal...";
+    const portalUrl = new URL("therapist-portal.html", window.location.href);
+    window.location.href = portalUrl.toString();
+  });
+
+  initPasswordToggles(loginModal);
+}
+
+function openLoginModal() {
+  loginModal.classList.remove("hidden");
+  loginModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+  therapistLoginEmailInput.focus();
+}
+
+function closeLoginModal() {
+  loginModal.classList.add("hidden");
+  loginModal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+}
+
+function initPasswordToggles(scope) {
+  scope.querySelectorAll("[data-password-toggle]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const target = document.getElementById(button.dataset.target);
+      if (!target) {
+        return;
+      }
+
+      const shouldShow = target.type === "password";
+      target.type = shouldShow ? "text" : "password";
+      button.textContent = shouldShow ? "Hide" : "Show";
+      button.setAttribute("aria-label", shouldShow ? "Hide password" : "Show password");
+    });
   });
 }
 
@@ -663,15 +728,15 @@ function renderCards(therapists) {
     card.className = "therapist-card";
     card.innerHTML = `
       <div class="card-image-wrap">
-        <img class="card-image" src="${therapist.image}" alt="${therapist.name}" loading="lazy">
+        <img class="card-image" src="${therapist.image || "data/portraits/portrait.svg"}" alt="${therapist.name}" loading="lazy">
       </div>
       <div class="card-body">
         <h2 class="card-name">${therapist.name}</h2>
-        <p class="card-title">${therapist.title}</p>
+        <p class="card-title">${therapist.title || "Footprints Therapist"}</p>
         <div class="card-meta">
-          <span>${therapist.location}</span>
+          <span>${therapist.location || "Location TBD"}</span>
           <span class="meta-dot" aria-hidden="true"></span>
-          <span>${therapist.languages.join(" Â· ")}</span>
+          <span>${therapist.languages.length ? therapist.languages.join(" · ") : "Language details coming soon"}</span>
         </div>
         <div class="card-tags">
           ${therapist.specialties.slice(0, 3).map((item) => `<span class="chip soft">${item}</span>`).join("")}
@@ -714,7 +779,16 @@ function buildTherapistSummary(therapist) {
   }
   const specialties = therapist.specialties.slice(0, 2).join(", ");
   const therapyTypes = therapist.therapyTypes.slice(0, 2).join(" and ");
-  return `Specializes in ${specialties}. Offers ${therapyTypes.toLowerCase()} sessions.`;
+  if (specialties && therapyTypes) {
+    return `Specializes in ${specialties}. Offers ${therapyTypes.toLowerCase()} sessions.`;
+  }
+  if (specialties) {
+    return `Specializes in ${specialties}.`;
+  }
+  if (therapyTypes) {
+    return `Offers ${therapyTypes.toLowerCase()} sessions.`;
+  }
+  return "Profile details are being updated.";
 }
 
 function renderResultsCount(totalMatches, displayedCount, showingRecommendations) {
@@ -854,6 +928,10 @@ function closeMobileFilters() {
 }
 
 function formatPrice(value) {
+  if (value == null || Number.isNaN(Number(value))) {
+    return "Contact for rate";
+  }
+
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",

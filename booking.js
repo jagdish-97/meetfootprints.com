@@ -96,16 +96,10 @@ function attachEventListeners() {
 }
 
 async function loadBookingTherapists() {
-  try {
-    const response = await fetch("data/therapists.json");
-    if (!response.ok) {
-      throw new Error("Could not load therapists data.");
-    }
-    return await response.json();
-  } catch (error) {
-    console.warn("Using fallback therapist data for booking page.", error);
-    return bookingFallbackTherapists;
-  }
+  return window.therapistDataApi.loadTherapists({
+    fallbackUrl: "data/therapists.json",
+    fallbackData: bookingFallbackTherapists
+  });
 }
 
 function resolveTherapistFromQuery() {
@@ -120,8 +114,17 @@ function renderTherapistDetails() {
   bookingElements.therapistImage.src = therapist.image || "data/portraits/portrait.svg";
   bookingElements.therapistImage.alt = therapist.name;
   bookingElements.therapistName.textContent = therapist.name;
+<<<<<<< Updated upstream
   bookingElements.therapistRole.textContent = `${therapist.title} | ${therapist.location} | ${therapist.languages.join(", ")}`;
   bookingElements.therapistPrice.textContent = formatPrice(STANDARD_SESSION_RATE);
+=======
+  bookingElements.therapistRole.textContent = [
+    therapist.title || "Footprints Therapist",
+    therapist.location || "Location TBD",
+    therapist.languages.length ? therapist.languages.join(", ") : "Language details coming soon"
+  ].join(" | ");
+  bookingElements.therapistPrice.textContent = formatPrice(therapist.price);
+>>>>>>> Stashed changes
   bookingElements.therapistAvailability.textContent = therapist.availability;
 }
 
@@ -632,6 +635,10 @@ function formatReadableDate(date) {
 }
 
 function formatPrice(value) {
+  if (value == null || Number.isNaN(Number(value))) {
+    return "Contact for rate";
+  }
+
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",

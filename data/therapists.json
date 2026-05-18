@@ -337,13 +337,13 @@
   {
     "id": "mariana-colin-flores",
     "name": "Mariana Colin Flores",
-    "image": "https://img1.wsimg.com/isteam/ip/be3b4275-20eb-4372-92a9-bcc3a138027c/Mariana%20Colin%20.webp/:/cr=t:5.01%25,l:0%25,w:100%25,h:75.19%25/rs=w:720,h:541,cg:true",
+      "image": "https://img1.wsimg.com/isteam/ip/be3b4275-20eb-4372-92a9-bcc3a138027c/Mariana%20Colin%20.webp/:/cr=t:5.01%25,l:0%25,w:100%25,h:75.19%25/rs=w:720,h:541,cg:true",
     "title": "LP",
     "location": "NY",
     "specialties": [
-      "Body Dysmorphic Disorder",
+        "Body Dysmorphic Disorder",
       "Depression"
-    ],
+    ],  
     "languages": [
       "English"
     ],

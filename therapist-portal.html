@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Therapist Portal | Footprints to Feel Better</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Nunito:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="directory-page portal-page">
+  <header class="home-header">
+    <div class="home-topbar">
+      <a class="home-brand" href="index.html" aria-label="Footprints to Feel Better home">
+        <img class="home-brand-logo" src="logo.png" alt="Footprints to Feel Better logo">
+        <span class="home-brand-name">Footprints to Feel Better</span>
+      </a>
+      <nav class="home-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="clinical-staff.html">Clinical Staff</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="home-actions">
+        <a class="home-cta home-cta-desktop" href="clinical-staff.html">Back to Directory</a>
+      </div>
+    </div>
+    <div class="home-service-strip">Secure Therapist and Admin Access</div>
+  </header>
+
+  <main class="portal-shell">
+    <section class="portal-hero">
+      <div>
+        <p class="portal-eyebrow">Portal Access</p>
+        <h1>Manage Therapist profiles</h1>
+        <p class="portal-copy">Therapists can update their own profile details. Admins can add, edit, and delete therapist records.</p>
+      </div>
+      <div class="portal-actions">
+        <button type="button" class="secondary-button" id="portal-refresh">Refresh Data</button>
+        <button type="button" class="secondary-button hidden" id="portal-signout">Sign Out</button>
+      </div>
+    </section>
+
+    <section class="portal-grid">
+      <article class="portal-card">
+        <div class="portal-card-header">
+          <div>
+            <p class="portal-section-label">Authentication</p>
+            <h2>Email and password/PIN sign in</h2>
+          </div>
+          <span class="portal-status" id="auth-status-badge">Signed out</span>
+        </div>
+        <form id="portal-login-form" class="portal-form">
+          <label class="portal-field">
+            <span>Email address</span>
+            <input type="email" id="portal-email" placeholder="name@footprintstofeelbetter.com" required>
+          </label>
+          <label class="portal-field">
+            <span>Password or PIN</span>
+            <div class="password-input-wrap">
+              <input type="password" id="portal-password" placeholder="Enter your password or PIN" required>
+              <button type="button" class="password-toggle" data-password-toggle data-target="portal-password" aria-label="Show password">Show</button>
+            </div>
+          </label>
+          <button type="submit" class="primary-button">Sign In</button>
+        </form>
+        <p class="portal-helper" id="portal-auth-copy">Use the email and password or PIN linked to your therapist or admin account.</p>
+      </article>
+
+      <article class="portal-card hidden" id="portal-account-card">
+        <div class="portal-card-header">
+          <div>
+            <p class="portal-section-label">Your Access</p>
+            <h2>Current session</h2>
+          </div>
+        </div>
+        <div class="portal-account-grid">
+          <div>
+            <p class="portal-mini-label">Email</p>
+            <p id="portal-account-email">-</p>
+          </div>
+          <div>
+            <p class="portal-mini-label">Role</p>
+            <p id="portal-account-role">-</p>
+          </div>
+          <div>
+            <p class="portal-mini-label">Linked therapist</p>
+            <p id="portal-account-therapist">-</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="portal-grid portal-grid-wide">
+      <article class="portal-card portal-form-card">
+        <div class="portal-card-header">
+          <div>
+            <p class="portal-section-label">Profile Editor</p>
+            <h2 id="editor-heading">Therapist profile</h2>
+          </div>
+          <span class="portal-status hidden" id="editor-mode-badge">Read only</span>
+        </div>
+        <form id="therapist-editor-form" class="portal-form hidden">
+          <input type="hidden" id="therapist-id">
+          <div class="portal-fields-grid">
+            <label class="portal-field">
+              <span>Full name</span>
+              <input type="text" id="therapist-name" required>
+            </label>
+            <label class="portal-field">
+              <span>Email</span>
+              <input type="email" id="therapist-login-email" required>
+            </label>
+            <label class="portal-field">
+              <span>Password or PIN</span>
+              <div class="password-input-wrap">
+                <input type="password" id="therapist-password" placeholder="Leave blank to keep existing password/PIN">
+                <button type="button" class="password-toggle" data-password-toggle data-target="therapist-password" aria-label="Show password">Show</button>
+              </div>
+            </label>
+            <label class="portal-field">
+              <span>Title</span>
+              <input type="text" id="therapist-title">
+            </label>
+            <label class="portal-field">
+              <span>Location</span>
+              <input type="text" id="therapist-location" placeholder="NY">
+            </label>
+            <label class="portal-field">
+              <span>Image URL</span>
+              <input type="url" id="therapist-image" placeholder="https://...">
+            </label>
+            <label class="portal-field">
+              <span>Price</span>
+              <input type="number" id="therapist-price" min="0" step="1" placeholder="165">
+            </label>
+            <label class="portal-field">
+              <span>Availability</span>
+              <select id="therapist-availability">
+                <option value="Available">Available</option>
+                <option value="Limited">Limited</option>
+                <option value="Waitlist">Waitlist</option>
+              </select>
+            </label>
+          </div>
+          <p class="portal-helper" id="password-reset-helper">Admins can reset a Therapist password or PIN by entering a new value here and saving the profile. Therapists can also change their own password or PIN from this form after signing in.</p>
+          <label class="portal-field">
+            <span>Summary</span>
+            <textarea id="therapist-summary" rows="4" placeholder="Short summary shown across the site"></textarea>
+          </label>
+          <div class="portal-fields-grid">
+            <label class="portal-field">
+              <span>Specialties</span>
+              <textarea id="therapist-specialties" rows="4" placeholder="Comma separated"></textarea>
+            </label>
+            <label class="portal-field">
+              <span>Languages</span>
+              <textarea id="therapist-languages" rows="4" placeholder="Comma separated"></textarea>
+            </label>
+            <label class="portal-field">
+              <span>Therapy types</span>
+              <textarea id="therapist-therapy-types" rows="4" placeholder="Comma separated"></textarea>
+            </label>
+          </div>
+          <div class="portal-form-actions">
+            <button type="button" class="secondary-button hidden" id="create-new-therapist">Create New Profile</button>
+            <button type="submit" class="primary-button">Save Profile</button>
+            <button type="button" class="secondary-button hidden" id="delete-therapist">Delete Profile</button>
+          </div>
+          <p class="portal-helper" id="editor-status">Sign in to edit Therapist information.</p>
+        </form>
+      </article>
+
+      <article class="portal-card hidden" id="admin-panel">
+        <div class="portal-card-header">
+          <div>
+            <p class="portal-section-label">Admin Control Panel</p>
+            <h2>All Therapist profiles</h2>
+          </div>
+          <button type="button" class="primary-button" id="admin-add-therapist">Add Therapist</button>
+        </div>
+        <label class="portal-field portal-search-field" for="admin-therapist-search">
+          <span>Search Therapist by name</span>
+          <input type="search" id="admin-therapist-search" placeholder="Type a therapist name">
+        </label>
+        <div class="portal-list" id="admin-therapist-list"></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="supabase-client.js"></script>
+  <script src="therapists-data.js"></script>
+  <script src="therapist-portal.js"></script>
+</body>
+</html>

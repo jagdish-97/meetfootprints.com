@@ -33,7 +33,7 @@
         <a href="contact.html">Contact</a>
       </nav>
       <div class="home-actions">
-        <a class="home-cta home-cta-desktop" href="tel:+19173523625">(917) 352-3625</a>
+        <button class="home-cta home-cta-desktop" id="open-login-modal" type="button">Therapist Login</button>
         <button class="home-menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
           <span></span>
           <span></span>
@@ -298,6 +298,35 @@
     </div>
   </aside>
 
+  <div class="auth-modal hidden" id="login-modal" aria-hidden="true">
+    <div class="auth-modal-backdrop" data-close-login-modal></div>
+    <div class="auth-modal-card" role="dialog" aria-modal="true" aria-labelledby="login-modal-title">
+      <button class="auth-modal-close" type="button" data-close-login-modal aria-label="Close login dialog">×</button>
+      <p class="auth-modal-eyebrow">Secure access</p>
+      <h2 id="login-modal-title">Therapist and Admin login</h2>
+      <p class="auth-modal-copy">Enter the email and password linked to your therapist or admin account.</p>
+      <form id="therapist-login-form" class="auth-modal-form">
+        <label class="auth-modal-field" for="therapist-login-email-input">
+          <span>Email address</span>
+          <input id="therapist-login-email-input" type="email" placeholder="name@footprintstofeelbetter.com" required>
+        </label>
+        <label class="auth-modal-field" for="therapist-login-password-input">
+          <span>Password or PIN</span>
+          <div class="password-input-wrap">
+            <input id="therapist-login-password-input" type="password" placeholder="Enter your password or PIN" required>
+            <button type="button" class="password-toggle" data-password-toggle data-target="therapist-login-password-input" aria-label="Show password">Show</button>
+          </div>
+        </label>
+        <button class="primary-button" type="submit">Sign In</button>
+      </form>
+      <p class="auth-modal-status" id="login-modal-status">After sign-in, you will be redirected to the therapist portal.</p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="supabase-client.js"></script>
+  <script src="therapists-data.js"></script>
   <script src="script.js" defer></script>
 </body>
 </html>
